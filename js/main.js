@@ -8,8 +8,7 @@ app.controller('mainController', function($scope) {
   $scope.search = '';
   $scope.locations = [{name: "Sample", author: "Zoe Adelman", image: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Round_Lake_(2)_-_Fayetteville_NY.jpg", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur auctor magna, sed placerat neque mollis ut. Pellentesque scelerisque molestie felis, a suscipit turpis tristique at. Maecenas iaculis sollicitudin posuere. Aenean nec mauris dapibus, pharetra felis id, sollicitudin massa.", votes: 0}];
 
-
-
+// ADD POST
 $scope.addNewLocation = function() {
   $scope.newLocation = {
     name: $scope.name,
@@ -27,13 +26,13 @@ $scope.addNewLocation = function() {
   $scope.description = "";
 };
 
-
+//ADD COMMENT
 $scope.addNewComment = function() {
   var newComment = {
-    user: this.user,
-    response: this.response
+    user: this.user.name,
+    response: this.user.response
   };
-
+  // $scope.comments.push(newComment);
   // this.location.comments.push(newComment);
   // $scope.newComment = {
   //   user: $scope.user,
@@ -43,6 +42,9 @@ $scope.addNewComment = function() {
   $scope.response = "";
 };
 
+
+
+//UPDATE POST VOTES
 $scope.addVote = function() {
   this.location.votes += 1;
 };
@@ -64,9 +66,6 @@ $scope.voteColor = function() {
     return neutral;
   }
 };
-
-    // { name: 'name1', votes: 0, author: 'author', description: 'description', date: 'date', comments: 'comments', image: "src"},
-    // { name: 'name2', votes: 3, author: 'author', description: 'description', date: 'date', comments: 'comments', image: "src"},
-    // { name: 'name3', votes: 12, author: 'author', description: 'description', date: 'date', comments: 'comments', image: "src"};
+//////END POST VOTES///////////////
 
 });

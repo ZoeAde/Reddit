@@ -74,19 +74,19 @@
                 <br>
                 <div class="allComments">
                   <div ng-show="showComments" ng-repeat="comment in locations">
-                    {{ this.locations.comments.user }} - {{ this.locations.comments.response }}
+                    {{ newComment.user }} - {{ newComment.response }}
                   </div>
                 </div>
-                <div ng-show="showCommentForm">
+                <div ng-model="newComment" ng-show="showCommentForm">
                   <div>
-                   <form name="form" role="form">
+                   <form name="commentForm" role="form">
                       <div class="form-group">
                         <label for="text">Name</label>
-                        <input ng-model="user" type="text" class="form-control" id="user">
+                        <input type="text" class="form-control" id="userName" name="userName" ng-model="user.name">
                       </div>
                       <div class="form-group">
                         <label for="text">Comment</label>
-                        <input ng-model="response" type="text" class="form-control" id="response">
+                        <input type="text" class="form-control" id="response" ng-model="user.response">
                       </div>
                       <button ng-click="addNewComment(); showCommentForm=false"  value="Add" type="submit" class="btn btn-default">Submit</button>
                     </form>
