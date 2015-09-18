@@ -8,6 +8,7 @@ app.controller('mainController', function($scope) {
   $scope.search = '';
   $scope.locations = [{name: "Sample", author: "Zoe Adelman", image: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Round_Lake_(2)_-_Fayetteville_NY.jpg", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur auctor magna, sed placerat neque mollis ut. Pellentesque scelerisque molestie felis, a suscipit turpis tristique at. Maecenas iaculis sollicitudin posuere. Aenean nec mauris dapibus, pharetra felis id, sollicitudin massa.", votes: 0}];
 
+
 // ADD POST
 $scope.addNewLocation = function() {
   $scope.newLocation = {
@@ -16,7 +17,7 @@ $scope.addNewLocation = function() {
     image: $scope.image,
     description: $scope.description,
     votes: 0,
-    date: "date",
+    date:"",
     comments: []
   };
   $scope.locations.push($scope.newLocation);
@@ -28,21 +29,24 @@ $scope.addNewLocation = function() {
 
 //ADD COMMENT
 $scope.addNewComment = function() {
-  var newComment = {
+  $scope.newComment = {
     user: this.user.name,
     response: this.user.response
   };
-  // $scope.comments.push(newComment);
-  // this.location.comments.push(newComment);
-  // $scope.newComment = {
-  //   user: $scope.user,
-  //   response: $scope.response
-  // };
-  $scope.user = "";
-  $scope.response = "";
+  this.location.comments.push($scope.newComment);
+  console.log($scope.newComment);
+  console.log(this.location.comments);
+
+
+  // $scope.user.name = "";
+  // $scope.user.response = "";
 };
 
-
+//ADD TIMESTAMP
+$scope.addNewDate = function() {
+  $scope.newDate = new Date().getTime();
+  this.location.date.push($scope.newComment);
+}
 
 //UPDATE POST VOTES
 $scope.addVote = function() {
