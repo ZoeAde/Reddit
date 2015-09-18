@@ -12,27 +12,31 @@
   <body ng-controller="mainController">
     <header>
         <nav class="navbar navbar-default">
-        <div class="container">
+          <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand">Reddit Clone</a>
+              <a class="navbar-brand" href="">Reddit Clone</a>
             </div>
 
-            <ul class="nav navbar-nav navbar-left">
-                <li><a><input type="text" class="form-control" placeholder="Search" ng-model="search"></a></li>
+            <div class="collapse navbar-collapse left" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort</a>
+                  <ul class="dropdown-menu">
+                    <li><a ng-click="sortType = 'votes'; sortReverse = !sortReverse">Rating <span ng-show="sortType == 'votes' && !sortReverse" class="fa fa-caret-down"></span><span ng-show="sortType == 'votes' && sortReverse" class="fa fa-caret-up"></span></a></li>
+                    <li><a ng-click="sortType = 'name'; sortReverse = !sortReverse">Name <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span><span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span></a></li>
+                    <li><a ng-click="sortType = 'author'; sortReverse = !sortReverse">Author <span ng-show="sortType == 'author' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'author' && sortReverse" class="fa fa-caret-up"></span></a></li>
+                    <li><a ng-click="sortType = 'comments'; sortReverse = !sortReverse">Comments <span ng-show="sortType == 'comments' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'comments' && sortReverse" class="fa fa-caret-up"></span></a></li>
+                  </ul>
+                </li>
                 <li><a ng-click="showme=true"><i class="fa fa-plus"></i> Add Post</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><h6 class="sort">SORT |</h6></li>
-                <li><a ng-click="sortType = 'votes'; sortReverse = !sortReverse">Rating<span ng-show="sortType == 'votes' && !sortReverse" class="fa fa-caret-down"></span><span ng-show="sortType == 'votes' && sortReverse" class="fa fa-caret-up"></span></a></li>
-                <li><a ng-click="sortType = 'name'; sortReverse = !sortReverse">Name<span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span><span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span></a></li>
-                <li><a ng-click="sortType = 'author'; sortReverse = !sortReverse">Author<span ng-show="sortType == 'author' && !sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="sortType == 'author' && sortReverse" class="fa fa-caret-up"></span></a></li>
-                <li><a ng-click="sortType = 'comments'; sortReverse = !sortReverse">Comments<span ng-show="sortType == 'comments' && !sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="sortType == 'comments' && sortReverse" class="fa fa-caret-up"></span></a></li>
-            </ul>
-
+                <li class="search"><a><input type="text" class="form-control" placeholder="Search" ng-model="search"></a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        </nav>
+      </nav>
     </header>
     <div class="container main">
       <div ng-class="newPost" ng-show="showme">

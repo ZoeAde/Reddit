@@ -50,3 +50,17 @@ h6 {
 img {
   margin-top: 1em;
 }
+
+.search {
+  margin-top: -0.5em;
+  text-align: right;
+}
+
+h3 {
+  padding-left: 2em;
+  font-size: 1.5em;
+}
+
+.left {
+  text-align: left;
+}
